@@ -137,7 +137,7 @@ interface PhoneInputProps {
   inputClassName?: string;
   placeholder?: string;
   required?: boolean;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export function PhoneInput({
