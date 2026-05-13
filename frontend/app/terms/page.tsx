@@ -76,7 +76,7 @@ export default function TermsPage() {
           <h2>7. Реквизиты и контакты</h2>
           <ul>
             <li>Организация: {CONTACTS.company}</li>
-            <li>БИН: {CONTACTS.bin}</li>
+
             <li>Адрес: {CONTACTS.address}</li>
             <li>
               Email:{" "}
