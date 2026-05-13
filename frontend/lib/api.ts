@@ -22,6 +22,7 @@ export function streamChatMessage(
   onEndRoleplay: (pitchMessage: string) => void,
   onDone: () => void,
   onError: (error: string) => void,
+  onSuggestions?: (suggestions: string[]) => void,
 ) {
   const url = `${API_URL}/chat/message`;
 
@@ -65,6 +66,8 @@ export function streamChatMessage(
               onToken(data.content);
             } else if (data.type === "end_roleplay") {
               onEndRoleplay(data.content);
+            } else if (data.type === "suggestions") {
+              onSuggestions?.(data.content);
             } else if (data.type === "done") {
               onDone();
             }

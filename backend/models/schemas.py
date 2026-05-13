@@ -16,9 +16,11 @@ class ChatStartResponse(BaseModel):
 
 
 class LeadSubmitRequest(BaseModel):
-    session_id: str
+    session_id: str | None = None
     phone: str | None = None
     telegram: str | None = None
+    name: str | None = None
+    business_niche: str | None = None
 
 
 class LeadSubmitResponse(BaseModel):

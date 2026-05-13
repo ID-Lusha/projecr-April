@@ -18,6 +18,7 @@ interface ChatState {
   sessionId: string | null;
   isLoading: boolean;
   error: string | null;
+  suggestions: string[];
 }
 
 let msgCounter = 0;
@@ -32,6 +33,7 @@ export function useChatState() {
     sessionId: null,
     isLoading: false,
     error: null,
+    suggestions: [],
   });
 
   const streamingContentRef = useRef("");
@@ -93,6 +95,7 @@ export function useChatState() {
         ...prev,
         isLoading: true,
         error: null,
+        suggestions: [],
         stage: prev.stage === "setup" ? "roleplay" : prev.stage,
         messages: [...prev.messages, userMsg, streamingMsg],
       }));
@@ -119,6 +122,7 @@ export function useChatState() {
             ...prev,
             stage: "lead_capture",
             isLoading: false,
+            suggestions: [],
             messages: prev.messages.map((m) =>
               m.id === streamingMsgId
                 ? { ...m, content: pitchMessage, isStreaming: false }
@@ -140,8 +144,12 @@ export function useChatState() {
             ...prev,
             isLoading: false,
             error,
+            suggestions: [],
             messages: prev.messages.filter((m) => m.id !== streamingMsgId),
           }));
+        },
+        (newSuggestions) => {
+          setState((prev) => ({ ...prev, suggestions: newSuggestions }));
         },
       );
     },
@@ -190,6 +198,7 @@ export function useChatState() {
       sessionId: null,
       isLoading: false,
       error: null,
+      suggestions: [],
     });
   }, []);
 

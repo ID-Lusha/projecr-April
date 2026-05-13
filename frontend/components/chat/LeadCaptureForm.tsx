@@ -2,8 +2,9 @@
 
 import { cn } from "@/lib/cn";
 import { motion } from "framer-motion";
-import { Phone, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { type FormEvent, useState } from "react";
+import { PhoneInput } from "@/components/ui/PhoneInput";
 
 interface LeadCaptureFormProps {
   onSubmit: (phone?: string, telegram?: string) => void;
@@ -36,20 +37,10 @@ export function LeadCaptureForm({ onSubmit, isLoading }: LeadCaptureFormProps) {
         </p>
 
         <div className="space-y-2">
-          <div className="relative">
-            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="+7 (___) ___-__-__"
-              className={cn(
-                "w-full rounded-md border border-border bg-background pl-10 pr-3 py-2.5",
-                "text-base placeholder:text-muted-foreground",
-                "focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
-              )}
-            />
-          </div>
+          <PhoneInput
+            value={phone}
+            onChange={setPhone}
+          />
 
           <input
             type="text"

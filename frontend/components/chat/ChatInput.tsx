@@ -22,6 +22,7 @@ export function ChatInput({ onSend, placeholder, disabled }: ChatInputProps) {
     setValue("");
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
+      textareaRef.current.focus();
     }
   };
 

@@ -5,7 +5,7 @@ STAGE_SETUP = "setup"
 STAGE_ROLEPLAY = "roleplay"
 STAGE_LEAD_CAPTURE = "lead_capture"
 
-MAX_ROLEPLAY_MESSAGES = 4
+MAX_ROLEPLAY_MESSAGES = 8
 
 
 def get_db_connection():

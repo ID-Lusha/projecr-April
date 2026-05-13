@@ -1,23 +1,45 @@
 "use client";
 
 import { FadeInView } from "@/components/animations/FadeInView";
-import { Clock, TrendingDown, DollarSign } from "lucide-react";
+import {
+  Clock,
+  TrendingDown,
+  Moon,
+  UserX,
+  BarChart,
+  Rocket,
+} from "lucide-react";
 
-const problems = [
+const pains = [
   {
     icon: Clock,
-    stat: "30 мин",
-    text: "Среднее время ответа менеджера. Клиент ждать не будет.",
+    title: "Менеджер ответил через 40 минут.",
+    text: "Клиент уже у конкурента. И так каждый день, по несколько раз.",
   },
   {
     icon: TrendingDown,
-    stat: "70%",
-    text: "Клиентов уходят к конкурентам, пока ждут ответ на заявку.",
+    title: "Реклама съедает $3,000/мес.",
+    text: "Конверсия в продажу — 4%. Остальные деньги уходят в никуда.",
   },
   {
-    icon: DollarSign,
-    stat: "×3",
-    text: "Рост стоимости привлечения клиента за последние 2 года.",
+    icon: Moon,
+    title: "Заявки приходят ночью и в выходные.",
+    text: "Утром клиент остыл. Написал конкуренту, которому ответили быстрее.",
+  },
+  {
+    icon: UserX,
+    title: "Уволился ключевой менеджер.",
+    text: "Провалили план на месяц. Снова нанимать, обучать, контролировать.",
+  },
+  {
+    icon: BarChart,
+    title: "Не знаю, сколько стоит мне один клиент.",
+    text: "Нет чёткой аналитики. Деньги вкладываю — что получаю, неясно.",
+  },
+  {
+    icon: Rocket,
+    title: "Хочу масштабироваться.",
+    text: "Но боюсь — отдел продаж не вытянет. Найм не успевает за ростом.",
   },
 ];
 
@@ -27,28 +49,28 @@ export function ProblemSection() {
       <div className="mx-auto max-w-5xl">
         <FadeInView>
           <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Трафик дорожает, а менеджеры
-            <br className="hidden sm:block" />{" "}
-            <span className="text-accent">не справляются</span>
+            Узнаёте <span className="text-accent">себя?</span>
           </h2>
         </FadeInView>
 
         <FadeInView delay={0.1}>
           <p className="mx-auto mt-4 max-w-2xl text-center text-base text-muted-foreground sm:text-lg">
-            Вы платите за рекламу, но теряете деньги на этапе обработки.
-            Пока менеджер берет трубку — клиент уже у конкурента.
+            Если хотя бы 2 пункта про вас —{" "}
+            <span className="font-semibold text-foreground">
+              вы теряете деньги каждый день.
+            </span>
           </p>
         </FadeInView>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-16">
-          {problems.map((item, i) => (
-            <FadeInView key={i} delay={0.1 * (i + 1)}>
-              <div className="flex flex-col items-center rounded-lg border border-border bg-background p-6 text-center transition-colors hover:bg-muted/50 sm:p-8">
-                <item.icon className="mb-4 h-8 w-8 text-accent" />
-                <span className="text-4xl font-bold tracking-tight sm:text-5xl">
-                  {item.stat}
-                </span>
-                <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
+          {pains.map((item, i) => (
+            <FadeInView key={i} delay={0.07 * (i + 1)}>
+              <div className="flex h-full flex-col rounded-lg border border-border bg-background p-5 transition-colors hover:bg-muted/50 hover:border-accent/30 sm:p-6">
+                <item.icon className="mb-3 h-7 w-7 text-accent" />
+                <p className="font-semibold tracking-tight leading-snug">
+                  {item.title}
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   {item.text}
                 </p>
               </div>

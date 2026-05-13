@@ -9,15 +9,17 @@ export function DemoSection() {
       <div className="mx-auto max-w-5xl">
         <FadeInView>
           <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Проверьте ИИ{" "}
-            <span className="text-accent">в деле</span>
+            Не верите?{" "}
+            <span className="text-accent">Проверьте ИИ прямо сейчас.</span>
           </h2>
         </FadeInView>
 
         <FadeInView delay={0.1}>
           <p className="mx-auto mt-4 max-w-2xl text-center text-base text-muted-foreground sm:text-lg">
-            Попробуйте не купить свой же продукт. Введите нишу — и наш ИИ
-            попытается закрыть вас на сделку.
+            Введите свою нишу. ИИ попробует продать вам{" "}
+            <span className="font-semibold text-foreground">ВАШ ЖЕ продукт.</span>{" "}
+            Если у него не получится — закроем эту страницу.
+            Если получится — поговорим о внедрении.
           </p>
         </FadeInView>
 
