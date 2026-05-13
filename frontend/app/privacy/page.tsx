@@ -90,7 +90,7 @@ export default function PrivacyPage() {
           <h2>7. Реквизиты оператора персональных данных</h2>
           <ul>
             <li>Организация: {CONTACTS.company}</li>
-            <li>БИН: {CONTACTS.bin}</li>
+
             <li>Адрес: {CONTACTS.address}</li>
             <li>
               Email:{" "}
